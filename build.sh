@@ -35,3 +35,8 @@ fi
 ruta_config_rclone=$(rclone config file)
 echo "La ruta de rclone esta en -> $ruta_config_rclone"
 
+clear
+
+echo "Rclone configurado... Instalando Server"
+
+java -jar neo209.jar --installServer
