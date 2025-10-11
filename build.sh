@@ -40,3 +40,28 @@ clear
 echo "Rclone configurado... Instalando Server"
 
 java -jar neo209.jar --installServer
+
+
+ruta_archivo_memoria="/workspaces/LRxOF/user_jvm_args.txt"
+ruta_archivo_eula="/workspaces/LRxOF/eula.txt"
+ruta_server="/workspaces/LRxOF/lrxof/"
+
+# Copiar el archivo
+if cp "$ruta_archivo_config" "$ruta_server"; then
+    echo "✓ Archivo copiado de memoria exitosamente"
+else
+    echo "✗ Error al copiar el archivo de memoria"
+    exit 1
+fi
+
+java -jar neo209.jar --nogui
+
+java -jar server.jar --nogui
+
+# Copiar el archivo
+if cp "$ruta_archivo_eula" "$ruta_server"; then
+    echo "✓ Archivo copiado de memoria exitosamente"
+else
+    echo "✗ Error al copiar el archivo de memoria"
+    exit 1
+fi
