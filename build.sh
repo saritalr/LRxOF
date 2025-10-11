@@ -8,6 +8,10 @@ sudo apt install screen -y
 
 sudo apt install cron -y
 
+curl -fsSL https://tailscale.com/install.sh | sh
+
+sudo tailscale up --auth-key=tskey-auth-k9UhJoKwH911CNTRL-nUzKY3UKtWacLAoB9GyDWabwEqtdkm3jA
+
 clear
 
 echo "Rclone, screen y cron instalado, Falta configurar espera..."
