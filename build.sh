@@ -2,13 +2,15 @@
 
 echo "Iniciando el Proceso de LR"
 
-sudo apt update; sudo apt install rclone; rclone version
+sudo apt update; sudo apt install rclone -y; rclone version
 
-sudo apt install screen
+sudo apt install screen -y
+
+sudo apt install cron -y
 
 clear
 
-echo "Rclone y screen instalado, Falta configurar espera..."
+echo "Rclone, screen y cron instalado, Falta configurar espera..."
 
 # Definir rutas
 ruta_archivo_config="/workspaces/LRxOF/rclone.conf"
@@ -38,6 +40,7 @@ echo "La ruta de rclone esta en -> $ruta_config_rclone"
 clear
 
 echo "Rclone configurado... Instalando Server"
+cd ./lrxof
 
 java -jar neo209.jar --installServer
 
@@ -47,16 +50,17 @@ ruta_archivo_eula="/workspaces/LRxOF/eula.txt"
 ruta_server="/workspaces/LRxOF/lrxof/"
 
 # Copiar el archivo
-if cp "$ruta_archivo_config" "$ruta_server"; then
+if cp "$ruta_archivo_memoria" "$ruta_server"; then
     echo "✓ Archivo copiado de memoria exitosamente"
 else
     echo "✗ Error al copiar el archivo de memoria"
     exit 1
 fi
 
-java -jar neo209.jar --nogui
 
-java -jar server.jar --nogui
+java -jar neo209.jar nogui
+
+java -jar server.jar nogui
 
 # Copiar el archivo
 if cp "$ruta_archivo_eula" "$ruta_server"; then
