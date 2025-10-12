@@ -10,7 +10,7 @@ sudo apt install cron -y
 
 curl -fsSL https://tailscale.com/install.sh | sh
 
-sudo tailscale up --auth-key=tskey-auth-k9UhJoKwH911CNTRL-nUzKY3UKtWacLAoB9GyDWabwEqtdkm3jA
+sudo tailscale up --auth-key=tskey-auth-kiG8wJTizA11CNTRL-5GAzjUZCHR55d3Lr4McuR5bnV1Ag1r9TP
 
 clear
 
@@ -52,7 +52,7 @@ java -jar neo209.jar --installServer
 ruta_archivo_memoria="/workspaces/LRxOF/user_jvm_args.txt"
 ruta_archivo_eula="/workspaces/LRxOF/eula.txt"
 ruta_archivo_propiedades="/workspaces/LRxOF/server.properties"
-ruta_server="A/workspaces/LRxOF/lrxof/"
+ruta_server="/workspaces/LRxOF/lrxof/"
 
 # Copiar el archivo
 if cp "$ruta_archivo_memoria" "$ruta_server"; then
@@ -80,5 +80,15 @@ if cp "$ruta_archivo_propiedades" "$ruta_server"; then
     echo "✓ Archivo copiado de propiedades exitosamente"
 else
     echo "✗ Error al copiar el archivo de propiedades"
+    exit 1
+fi
+
+ruta_srv_carpeta="/workspaces/LRxOF/lrxof/world"
+ruta_rclone="lrdrive:mapa_mc"
+
+if rclone copy -P "$ruta_rclone" "$ruta_srv_carpeta"; then
+    echo "✓ Mundo copiado exitosamente"
+else
+    echo "✗ Error al copiar el mundo"
     exit 1
 fi
