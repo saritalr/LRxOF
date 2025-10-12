@@ -21,8 +21,8 @@ echo "✅ Sesión screen 'minecraft' encontrada"
 # Enviar comando de guardado
 echo "💾 Enviando save-all al servidor..."
 screen -S minecraft -X stuff "save-all^M"
-echo "⏳ Esperando 30 segundos para guardado completo..."
-sleep 30
+echo "⏳ Esperando 15 segundos para guardado completo..."
+sleep 15
 
 # Sincronizar la carpeta del mundo con la nube
 echo "☁️ Sincronizando con la nube..."

@@ -10,7 +10,7 @@ sudo apt install cron -y
 
 curl -fsSL https://tailscale.com/install.sh | sh
 
-sudo tailscale up --auth-key=tskey-auth-kiG8wJTizA11CNTRL-5GAzjUZCHR55d3Lr4McuR5bnV1Ag1r9TP
+sudo tailscale up 
 
 clear
 
