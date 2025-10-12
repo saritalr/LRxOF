@@ -16,7 +16,16 @@ sudo tailscale up
 
 sudo zerotier-one -d
 
-sudo zerotier-cli join git
+sudo zerotier-cli join 0cccb752f7689744
+
+curl -SsL https://playit-cloud.github.io/ppa/key.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/playit.gpg >/dev/null
+echo "deb [signed-by=/etc/apt/trusted.gpg.d/playit.gpg] https://playit-cloud.github.io/ppa/data ./" | sudo tee /etc/apt/sources.list.d/playit-cloud.list
+
+sudo apt install playit
+
+sudo systemctl start playit
+
+playit setup  
 
 clear
 
