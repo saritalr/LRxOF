@@ -10,7 +10,13 @@ sudo apt install cron -y
 
 curl -fsSL https://tailscale.com/install.sh | sh
 
+curl -s https://install.zerotier.com | sudo bash
+
 sudo tailscale up 
+
+sudo zerotier-one -d
+
+sudo zerotier-cli join git
 
 clear
 

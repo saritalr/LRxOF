@@ -1,5 +1,9 @@
 {
-    "runArgs": ["--device=/dev/net/tun"],
+    "runArgs": [
+        "--device=/dev/net/tun",
+        "--cap-add=NET_ADMIN",
+        "--cap-add=SYS_ADMIN"
+    ],
     "features": {
         "ghcr.io/tailscale/codespace/tailscale": {}
     }
