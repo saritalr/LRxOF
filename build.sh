@@ -51,7 +51,8 @@ java -jar neo209.jar --installServer
 
 ruta_archivo_memoria="/workspaces/LRxOF/user_jvm_args.txt"
 ruta_archivo_eula="/workspaces/LRxOF/eula.txt"
-ruta_server="/workspaces/LRxOF/lrxof/"
+ruta_archivo_propiedades="/workspaces/LRxOF/server.properties"
+ruta_server="A/workspaces/LRxOF/lrxof/"
 
 # Copiar el archivo
 if cp "$ruta_archivo_memoria" "$ruta_server"; then
@@ -71,5 +72,13 @@ if cp "$ruta_archivo_eula" "$ruta_server"; then
     echo "✓ Archivo copiado de memoria exitosamente"
 else
     echo "✗ Error al copiar el archivo de memoria"
+    exit 1
+fi
+
+# Copiar el archivo
+if cp "$ruta_archivo_propiedades" "$ruta_server"; then
+    echo "✓ Archivo copiado de propiedades exitosamente"
+else
+    echo "✗ Error al copiar el archivo de propiedades"
     exit 1
 fi
