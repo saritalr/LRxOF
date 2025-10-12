@@ -83,10 +83,19 @@ else
     exit 1
 fi
 
-ruta_srv_carpeta="/workspaces/LRxOF/lrxof/world"
-ruta_rclone="lrdrive:mapa_mc"
+ruta_srv_carpeta_mapa="/workspaces/LRxOF/lrxof/world"
+ruta_srv_carpeta_mods="/workspaces/LRxOF/lrxof/mods"
+ruta_rclone_mapa="lrdrive:mapa_mc"
+ruta_rclone_mods="lrdrive:mods_mc"
 
-if rclone copy -P "$ruta_rclone" "$ruta_srv_carpeta"; then
+if rclone copy -P "$ruta_rclone_mapa" "$ruta_srv_carpeta_mapa"; then
+    echo "✓ Mundo copiado exitosamente"
+else
+    echo "✗ Error al copiar el mundo"
+    exit 1
+fi
+
+if rclone copy -P "$ruta_rclone_mods" "$ruta_srv_carpeta_mods"; then
     echo "✓ Mundo copiado exitosamente"
 else
     echo "✗ Error al copiar el mundo"
