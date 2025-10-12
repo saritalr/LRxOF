@@ -19,10 +19,10 @@ echo "📝 Para salir sin cerrar: Ctrl+A, luego D"
 echo "📝 IP del servidor: $(tailscale ip)"
 echo "🔁 El respaldo automático está configurado y funcionará cada 10 minutos."
 
-echo "🔄 Iniciando respaldos automáticos..."
+echo "🔄 Inicial el loop de 10 minutos de respaldos automáticos..."
 
 while true; do
-    sleep 60  # 600 segundos = 10 minutos
+    sleep 540  # 540 segundos = 9 minutos
     echo "🕒 Ejecutando respaldo: $(date)"
     cd /workspaces/LRxOF
     ./respaldo_mapa.sh
