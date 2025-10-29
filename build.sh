@@ -14,18 +14,6 @@ curl -s https://install.zerotier.com | sudo bash
 
 sudo tailscale up 
 
-sudo zerotier-one -d
-
-sudo zerotier-cli join 0cccb752f7689744
-
-curl -SsL https://playit-cloud.github.io/ppa/key.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/playit.gpg >/dev/null
-echo "deb [signed-by=/etc/apt/trusted.gpg.d/playit.gpg] https://playit-cloud.github.io/ppa/data ./" | sudo tee /etc/apt/sources.list.d/playit-cloud.list
-
-sudo apt install playit
-
-sudo systemctl start playit
-
-playit setup  
 
 clear
 
@@ -103,14 +91,14 @@ ruta_srv_carpeta_mods="/workspaces/LRxOF/lrxof/mods"
 ruta_rclone_mapa="lrdrive:mapa_mc"
 ruta_rclone_mods="lrdrive:mods_mc"
 
-if rclone copy -P "$ruta_rclone_mapa" "$ruta_srv_carpeta_mapa"; then
+if rclone copy -P "$ruta_rclone_mods" "$ruta_srv_carpeta_mods"; then
     echo "✓ Mundo copiado exitosamente"
 else
     echo "✗ Error al copiar el mundo"
     exit 1
 fi
 
-if rclone copy -P "$ruta_rclone_mods" "$ruta_srv_carpeta_mods"; then
+if rclone copy -P "$ruta_rclone_mapa" "$ruta_srv_carpeta_mapa"; then
     echo "✓ Mundo copiado exitosamente"
 else
     echo "✗ Error al copiar el mundo"
